@@ -1,3 +1,8 @@
+{% extends 'base.html' %}
+{% block main %}
+<title>View</title>
+{% block content %}
+
 {% for field in view_model %}
 <p>
 {{ field.id }}
@@ -5,3 +10,7 @@
 </p>
 {% endfor %}
 <a href="/index/">Index page</a>
+
+{% endblock content%}
+
+{% endblock main %}

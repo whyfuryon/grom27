@@ -1,15 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Forms</title>
-</head>
-<body>
-    <form action="/index/" method="POST">
-    {% csrf_token %}
-    {{form}} 
-<input type="submit" name="submit" value="Submit">
-</form>
+{% extends 'base.html' %}
+{% block page %}
+<title>Input</title>
+{% block content %}
+<div id="formset_div">
+
+    <form id='sbm'action="/index/" method="POST">
+
+        {% csrf_token %}
+        {{formset.management_form}}
+        {% for field in formset%}
+
+        <div id="formset_fields">
+
+            <p>{{field}}</p>
+
+        </div>
+
+        {% endfor %}
+
+        <button id="add-field">Add</button>
+    </form>
+    
+</div>
 <a href="/view/">Viev page</a>
-</body>
-</html>
+{% endblock content %}
+
+<script>
+var total_form_count = document.getElementById('id_form-TOTAL_FORMS')
+var input_button = document.getElementById('add-field')
+var total_form = total_form_count.value
+
+input_button.onclick = function(){
+    total_form_count.setAttribute('value',total_form)
+    total_form_count.value++
+}
+</script>
+
+{% endblock page %}
