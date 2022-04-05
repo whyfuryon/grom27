@@ -5,12 +5,11 @@ from .models import InputModel
 from .forms import InputForm
 
 def index(request):
-        form = formset_factory(InputForm)
+        form = formset_factory(InputForm,max_num=1)
         form_count = request.POST.get('form-TOTAL_FORMS')
         if request.method == 'POST':
             formset = form(request.POST)
             form = formset_factory(InputForm,extra=int(form_count))
-            print(form_count)
             if formset.is_valid():
                 model_input = InputModel(data=formset.cleaned_data)
                 model_input.save()

@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
-{% block main %}
-<title>View</title>
+
+{% block title %}View{% endblock title %}
 {% block content %}
 
 {% for field in view_model %}
@@ -11,6 +11,4 @@
 {% endfor %}
 <a href="/index/">Index page</a>
 
-{% endblock content%}
-
-{% endblock main %}
+{% endblock content %}

@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
-{% block page %}
-<title>Input</title>
+
+{% block title %}Input{% endblock title %}
 {% block content %}
 <div id="formset_div">
 
@@ -20,11 +20,11 @@
 
         <button id="add-field">Add</button>
     </form>
-    
 </div>
 <a href="/view/">Viev page</a>
 {% endblock content %}
 
+{% block script %}
 <script>
 var total_form_count = document.getElementById('id_form-TOTAL_FORMS')
 var input_button = document.getElementById('add-field')
@@ -35,5 +35,4 @@ input_button.onclick = function(){
     total_form_count.value++
 }
 </script>
-
-{% endblock page %}
+{% endblock script %}
