@@ -5,7 +5,7 @@ from .models import InputModel
 from .forms import InputForm
 
 def index(request):
-        form = formset_factory(InputForm,max_num=1)
+        form = formset_factory(InputForm)
         form_count = request.POST.get('form-TOTAL_FORMS')
         if request.method == 'POST':
             formset = form(request.POST)
